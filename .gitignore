@@ -1,0 +1,51 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask specific files
+instance/
+*.pyc
+
+# Environment variables and credentials
+.env
+*.env
+
+# Virtual environment directory
+venv/
+ENV/
+env/
+.venv/
+
+# macOS specific files
+.DS_Store
+
+# Log files
+*.log
+
+# SQL database files
+*.sqlite3
+*.db
+
+# Upload folder for images
+uploads/
+static/uploads/
+
+# PyCharm specific files
+.idea/
+
+# VSCode specific files
+.vscode/
+
+# Node.js specific (if React frontend exists)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache
+coverage.xml

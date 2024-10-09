@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Todo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      h1 {
+        color: #333;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        width: 70%;
+      }
+      button {
+        padding: 8px 16px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      a {
+        display: inline-block;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #666;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Edit Todo</h1>
+    <form action="{{ url_for('edit', index=index) }}" method="post">
+      <input type="text" name="todo" value="{{ todo['task'] }}" required />
+      <button type="submit">Update</button>
+    </form>
+    <a href="{{ url_for('index') }}">Cancel</a>
+  </body>
+</html>

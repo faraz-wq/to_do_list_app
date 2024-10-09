@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      h1 {
+        color: #333;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        width: 70%;
+      }
+      button {
+        padding: 8px 16px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        background-color: #f9f9f9;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .done {
+        text-decoration: line-through;
+        color: #888;
+      }
+      a {
+        margin-left: 10px;
+        text-decoration: none;
+        color: #666;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <form action="{{ url_for('add') }}" method="post">
+      <input
+        type="text"
+        name="todo"
+        placeholder="Enter a new todo item"
+        required
+      />
+      <button type="submit">Add Todo</button>
+    </form>
+    <ul>
+      {% for todo in todos %}
+      <li class="{{ 'done' if todo['done'] else '' }}">
+        {{ todo['task'] }}
+        <a href="{{ url_for('check', index=loop.index0) }}"
+          >{% if todo['done'] %}Uncheck{% else %}Check{% endif %}</a
+        >
+        <a href="{{ url_for('edit', index=loop.index0) }}">Edit</a>
+        <a href="{{ url_for('delete', index=loop.index0) }}">Delete</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
